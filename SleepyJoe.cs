@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace SleepyJoe
 {
@@ -18,6 +19,9 @@ namespace SleepyJoe
         public SleepyJoe()
         {
             InitializeComponent();
+
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
+
             for (int i = 0; i < 3; i++)
 
             {
@@ -49,6 +53,16 @@ namespace SleepyJoe
             //  stair1[i].DrawStairs(g);
             //i++;
             //}
+
+        }
+
+        private void TmrStairs_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                stair1[i].MoveStairs();
+            }
+            PnlGame.Invalidate();//makes the paint event fire to redraw the panel
 
         }
     }

@@ -29,7 +29,9 @@ namespace SleepyJoe
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PnlGame = new System.Windows.Forms.Panel();
+            this.TmrStairs = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // PnlGame
@@ -40,6 +42,11 @@ namespace SleepyJoe
             this.PnlGame.Size = new System.Drawing.Size(650, 577);
             this.PnlGame.TabIndex = 0;
             this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
+            // 
+            // TmrStairs
+            // 
+            this.TmrStairs.Enabled = true;
+            this.TmrStairs.Tick += new System.EventHandler(this.TmrStairs_Tick);
             // 
             // SleepyJoe
             // 
@@ -55,6 +62,7 @@ namespace SleepyJoe
         #endregion
 
         private System.Windows.Forms.Panel PnlGame;
+        private System.Windows.Forms.Timer TmrStairs;
     }
 }
 

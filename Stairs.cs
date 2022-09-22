@@ -32,6 +32,11 @@ namespace SleepyJoe
             stairRec = new Rectangle(x, y, width, height);
             g.DrawImage(stairImage, stairRec);
         }
+        public void MoveStairs()
+        {
+            y += 5;
+            stairRec.Location = new Point(x, y);
+        }
     }
 }
 // public int score;
