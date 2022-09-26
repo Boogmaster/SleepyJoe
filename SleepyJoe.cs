@@ -15,6 +15,8 @@ namespace SleepyJoe
     {
         Graphics g; //declare a graphics object called g
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
+        Biden biden = new Biden();
+
 
         public SleepyJoe()
         {
@@ -41,7 +43,7 @@ namespace SleepyJoe
                 stair1[i].DrawStairs(g);
             }
 
-
+            biden.DrawBiden(g);
 
 
 
