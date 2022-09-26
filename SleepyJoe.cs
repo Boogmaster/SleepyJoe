@@ -16,6 +16,8 @@ namespace SleepyJoe
         Graphics g; //declare a graphics object called g
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
         Biden biden = new Biden();
+        bool left, right;
+        string move;
 
 
         public SleepyJoe()
@@ -55,6 +57,38 @@ namespace SleepyJoe
             //  stair1[i].DrawStairs(g);
             //i++;
             //}
+
+        }
+
+        private void SleepyJoe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = true; }
+            if (e.KeyData == Keys.Right) { right = true; }
+
+
+        }
+
+        private void SleepyJoe_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Left) { left = false; }
+            if (e.KeyData == Keys.Right) { right = false; }
+
+        }
+
+        private void TmrBiden_Tick(object sender, EventArgs e)
+        {
+            if (right) //if right is pressed
+            {
+                move = "right";
+                biden.MoveBiden(move);
+
+            }
+
+            if (left) // if left arrow key pressed
+            {
+                move = "left";
+                biden.MoveBiden(move);
+            }
 
         }
 

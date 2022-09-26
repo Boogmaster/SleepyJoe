@@ -32,6 +32,25 @@ namespace SleepyJoe
 
             g.DrawImage(biden, bidenRec);
         }
+        public void MoveBiden(string move)
+        {
+            bidenRec.Location = new Point(x, y);
+
+            if (move == "right")
+            {
+
+                x += 5;
+                bidenRec.Location = new Point(x, y);
+            }
+
+            if (move == "left")
+            {
+
+                x -= 5;
+                bidenRec.Location = new Point(x, y);
+            }
+
+        }
 
     }
 }

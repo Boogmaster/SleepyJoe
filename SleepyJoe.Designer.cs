@@ -32,6 +32,7 @@ namespace SleepyJoe
             this.components = new System.ComponentModel.Container();
             this.PnlGame = new System.Windows.Forms.Panel();
             this.TmrStairs = new System.Windows.Forms.Timer(this.components);
+            this.TmrBiden = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // PnlGame
@@ -48,13 +49,22 @@ namespace SleepyJoe
             this.TmrStairs.Enabled = true;
             this.TmrStairs.Tick += new System.EventHandler(this.TmrStairs_Tick);
             // 
+            // TmrBiden
+            // 
+            this.TmrBiden.Enabled = true;
+            this.TmrBiden.Interval = 50;
+            this.TmrBiden.Tick += new System.EventHandler(this.TmrBiden_Tick);
+            // 
             // SleepyJoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 637);
             this.Controls.Add(this.PnlGame);
+            this.KeyPreview = true;
             this.Name = "SleepyJoe";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyUp);
             this.ResumeLayout(false);
 
         }
@@ -63,6 +73,7 @@ namespace SleepyJoe
 
         private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Timer TmrStairs;
+        private System.Windows.Forms.Timer TmrBiden;
     }
 }
 
