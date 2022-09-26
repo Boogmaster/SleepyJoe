@@ -47,7 +47,7 @@ namespace SleepyJoe
 
 
 
-            //  int i = 1;
+            //  int i = 1;n
             //while(i < stair1.Length)
             //{
             //  stair1[i].DrawStairs(g);
@@ -61,6 +61,13 @@ namespace SleepyJoe
             for (int i = 0; i < 3; i++)
             {
                 stair1[i].MoveStairs();
+
+                //if a planet reaches the bottom of the Game Area reposition it at the top
+                if (stair1[i].y >= PnlGame.Height)
+                {
+                    stair1[i].y = 30;
+                }
+
             }
             PnlGame.Invalidate();//makes the paint event fire to redraw the panel
 
