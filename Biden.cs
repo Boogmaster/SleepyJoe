@@ -38,16 +38,34 @@ namespace SleepyJoe
 
             if (move == "right")
             {
+                if (bidenRec.Location.X > 450)
+                {
+                    x = 450;
+                    bidenRec.Location = new Point(x, y);
 
-                x += 5;
-                bidenRec.Location = new Point(x, y);
+                }
+                else
+                { 
+                  x += 5;
+                  bidenRec.Location = new Point(x, y);
+                }
+               
             }
 
             if (move == "left")
-            {
+            { 
+                if (bidenRec.Location.X < 10)
+                {
+                    x = 10;
+                    bidenRec.Location = new Point(x, y);
 
-                x -= 5;
-                bidenRec.Location = new Point(x, y);
+                }
+                else
+                {
+                    x -= 5;
+                    bidenRec.Location = new Point(x, y);
+                }
+
             }
 
         }

@@ -51,17 +51,11 @@ namespace SleepyJoe
 
 
 
-            //  int i = 1;n
-            //while(i < stair1.Length)
-            //{
-            //  stair1[i].DrawStairs(g);
-            //i++;
-            //}
-
         }
 
         private void SleepyJoe_KeyDown(object sender, KeyEventArgs e)
         {
+            //if left/right key is pressed then set left/right to true
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
 
@@ -70,6 +64,7 @@ namespace SleepyJoe
 
         private void SleepyJoe_KeyUp(object sender, KeyEventArgs e)
         {
+            //once key is released set left/right to false
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
 
@@ -98,7 +93,7 @@ namespace SleepyJoe
             {
                 stair1[i].MoveStairs();
 
-                //if a planet reaches the bottom of the Game Area reposition it at the top
+                //when a stair reaches the bottom reposition to the top of the screen
                 if (stair1[i].y >= PnlGame.Height)
                 {
                     stair1[i].y = 30;

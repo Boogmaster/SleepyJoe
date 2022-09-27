@@ -39,4 +39,3 @@ namespace SleepyJoe
         }
     }
 }
-// public int score;
