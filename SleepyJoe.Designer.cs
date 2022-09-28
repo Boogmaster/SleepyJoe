@@ -33,6 +33,9 @@ namespace SleepyJoe
             this.PnlGame = new System.Windows.Forms.Panel();
             this.TmrStairs = new System.Windows.Forms.Timer(this.components);
             this.TmrBiden = new System.Windows.Forms.Timer(this.components);
+            this.lbltitle = new System.Windows.Forms.Label();
+            this.lblscore = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PnlGame
@@ -55,17 +58,48 @@ namespace SleepyJoe
             this.TmrBiden.Interval = 50;
             this.TmrBiden.Tick += new System.EventHandler(this.TmrBiden_Tick);
             // 
+            // lbltitle
+            // 
+            this.lbltitle.AutoSize = true;
+            this.lbltitle.Location = new System.Drawing.Point(13, 13);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Size = new System.Drawing.Size(35, 13);
+            this.lbltitle.TabIndex = 1;
+            this.lbltitle.Text = "Score";
+            // 
+            // lblscore
+            // 
+            this.lblscore.AutoSize = true;
+            this.lblscore.Location = new System.Drawing.Point(13, 26);
+            this.lblscore.Name = "lblscore";
+            this.lblscore.Size = new System.Drawing.Size(13, 13);
+            this.lblscore.TabIndex = 2;
+            this.lblscore.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(674, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "label3";
+            // 
             // SleepyJoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 637);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblscore);
+            this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.PnlGame);
             this.KeyPreview = true;
             this.Name = "SleepyJoe";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyUp);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -74,6 +108,9 @@ namespace SleepyJoe
         private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Timer TmrStairs;
         private System.Windows.Forms.Timer TmrBiden;
+        private System.Windows.Forms.Label lbltitle;
+        private System.Windows.Forms.Label lblscore;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -26,6 +26,9 @@ namespace SleepyJoe
             biden = Properties.Resources.biren;
             bidenRec = new Rectangle(x, y, width, height);
         }
+
+       
+
         //methods
         public void DrawBiden(Graphics g)
         {
@@ -38,9 +41,9 @@ namespace SleepyJoe
 
             if (move == "right")
             {
-                if (bidenRec.Location.X > 450)
+                if (bidenRec.Location.X > 400)
                 {
-                    x = 450;
+                    x = 400;
                     bidenRec.Location = new Point(x, y);
 
                 }
@@ -54,9 +57,9 @@ namespace SleepyJoe
 
             if (move == "left")
             { 
-                if (bidenRec.Location.X < 10)
+                if (bidenRec.Location.X < -100)
                 {
-                    x = 10;
+                    x = -100;
                     bidenRec.Location = new Point(x, y);
 
                 }

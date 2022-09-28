@@ -17,6 +17,7 @@ namespace SleepyJoe
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
         Biden biden = new Biden();
         bool left, right;
+        int score, energy;
         string move;
 
 
@@ -34,6 +35,17 @@ namespace SleepyJoe
             }
 
         }
+        //drowsiness code
+        private void CheckEnergy()
+        {
+            if (energy == 0)
+            {
+                TmrBiden.Enabled = false;
+                TmrStairs.Enabled = false;
+                MessageBox.Show("Game Over You Fell Asleep");
+
+            }
+        }
 
         private void PnlGame_Paint(object sender, PaintEventArgs e)
         {
@@ -41,7 +53,7 @@ namespace SleepyJoe
 
             for (int i = 0; i < 3; i++)
             {
-                //call the Planet class's drawPlanet method to draw the images
+                //call bidens class's drawBiden method to draw the images
                 stair1[i].DrawStairs(g);
             }
 
@@ -69,6 +81,9 @@ namespace SleepyJoe
             if (e.KeyData == Keys.Right) { right = false; }
 
         }
+
+       
+
 
         private void TmrBiden_Tick(object sender, EventArgs e)
         {
