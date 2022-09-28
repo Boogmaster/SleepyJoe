@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biden.cs" />
+    <Compile Include="Icecream.cs" />
     <Compile Include="SleepyJoe.cs">
       <SubType>Form</SubType>
     </Compile>
