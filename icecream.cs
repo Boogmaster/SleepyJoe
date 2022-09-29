@@ -16,9 +16,9 @@ namespace SleepyJoe
 
 
         //Create a constructor (initialises the values of the fields)
-        public Icecream(int spacing)
+        public Icecream ()
         {
-            x = -spacing;
+            x = 70;
             y = 10;
             width = 200;
             height = 200;
@@ -27,15 +27,10 @@ namespace SleepyJoe
             iceRec = new Rectangle(x, y, width, height);
         }
 
-        public void DrawIce(Graphics g)
+       //methods for icecream
+       public void DrawIce(Graphics g)
         {
-            iceRec = new Rectangle(x, y, width, height);
             g.DrawImage(iceImage, iceRec);
-        }
-        public void MoveStairs()
-        {
-            y += 5;
-            iceRec.Location = new Point(x, y);
         }
     }
 

@@ -16,6 +16,7 @@ namespace SleepyJoe
         Graphics g; //declare a graphics object called g
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
         Biden biden = new Biden();
+        Icecream icecream1 = new Icecream(); // create the object icecream
         bool left, right;
         int score, energy;
         string move;
@@ -24,7 +25,7 @@ namespace SleepyJoe
         public SleepyJoe()
         {
             InitializeComponent();
-
+            //Double buffering to stop the movign items from flickering a lot 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
 
             for (int i = 0; i < 3; i++)
@@ -33,6 +34,7 @@ namespace SleepyJoe
                 int x = -20 - (i * 200);
                 stair1[i] = new Stairs(x);
             }
+            
 
         }
         //drowsiness code
@@ -58,7 +60,7 @@ namespace SleepyJoe
             }
 
             biden.DrawBiden(g);
-
+            icecream1.DrawIce(g);
 
 
 
@@ -107,12 +109,14 @@ namespace SleepyJoe
             for (int i = 0; i < 3; i++)
             {
                 stair1[i].MoveStairs();
+                
 
                 //when a stair reaches the bottom reposition to the top of the screen
                 if (stair1[i].y >= PnlGame.Height)
                 {
                     stair1[i].y = 30;
                 }
+               
 
             }
             PnlGame.Invalidate();//makes the paint event fire to redraw the panel
