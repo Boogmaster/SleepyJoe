@@ -43,7 +43,7 @@ namespace SleepyJoe
             if (energy == 0)
             {
                 TmrBiden.Enabled = false;
-                TmrStairs.Enabled = false;
+                tmrItems.Enabled = false;
                 MessageBox.Show("Game Over You Fell Asleep");
 
             }
@@ -70,17 +70,32 @@ namespace SleepyJoe
         private void SleepyJoe_KeyDown(object sender, KeyEventArgs e)
         {
             //if left/right key is pressed then set left/right to true
-            if (e.KeyData == Keys.Left) { left = true; }
-            if (e.KeyData == Keys.Right) { right = true; }
+            //if (e.KeyData == Keys.Left) { left = true; }
+            // (e.KeyData == Keys.Right) { right = true; }
+            if(e.KeyData == Keys.Left)
+            {
+                move = "left";
+                biden.MoveBiden(move);
+            }
+            if(e.KeyData == Keys.Right)
+            {
+                move = "right";
+                biden.MoveBiden(move);
+            }
 
 
+        }
+
+        private void tmrItems_Tick(object sender, EventArgs e)
+        {
+            PnlGame.Invalidate();
         }
 
         private void SleepyJoe_KeyUp(object sender, KeyEventArgs e)
         {
             //once key is released set left/right to false
-            if (e.KeyData == Keys.Left) { left = false; }
-            if (e.KeyData == Keys.Right) { right = false; }
+            //if (e.KeyData == Keys.Left) { left = false; }
+            //if (e.KeyData == Keys.Right) { right = false; }
 
         }
 
@@ -89,7 +104,7 @@ namespace SleepyJoe
 
         private void TmrBiden_Tick(object sender, EventArgs e)
         {
-            if (right) //if right is pressed
+            /*if (right) //if right is pressed
             {
                 move = "right";
                 biden.MoveBiden(move);
@@ -100,27 +115,10 @@ namespace SleepyJoe
             {
                 move = "left";
                 biden.MoveBiden(move);
-            }
+            }*/
+            PnlGame.Invalidate();
 
         }
 
-        private void TmrStairs_Tick(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                stair1[i].MoveStairs();
-                
-
-                //when a stair reaches the bottom reposition to the top of the screen
-                if (stair1[i].y >= PnlGame.Height)
-                {
-                    stair1[i].y = 30;
-                }
-               
-
-            }
-            PnlGame.Invalidate();//makes the paint event fire to redraw the panel
-
-        }
     }
 }

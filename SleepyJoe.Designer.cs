@@ -31,11 +31,12 @@ namespace SleepyJoe
         {
             this.components = new System.ComponentModel.Container();
             this.PnlGame = new System.Windows.Forms.Panel();
-            this.TmrStairs = new System.Windows.Forms.Timer(this.components);
+            this.tmrItems = new System.Windows.Forms.Timer(this.components);
             this.TmrBiden = new System.Windows.Forms.Timer(this.components);
             this.lbltitle = new System.Windows.Forms.Label();
             this.lblscore = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblTemp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PnlGame
@@ -47,10 +48,10 @@ namespace SleepyJoe
             this.PnlGame.TabIndex = 0;
             this.PnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlGame_Paint);
             // 
-            // TmrStairs
+            // tmrItems
             // 
-            this.TmrStairs.Enabled = true;
-            this.TmrStairs.Tick += new System.EventHandler(this.TmrStairs_Tick);
+            this.tmrItems.Enabled = true;
+            this.tmrItems.Tick += new System.EventHandler(this.tmrItems_Tick);
             // 
             // TmrBiden
             // 
@@ -85,11 +86,21 @@ namespace SleepyJoe
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
             // 
+            // lblTemp
+            // 
+            this.lblTemp.AutoSize = true;
+            this.lblTemp.Location = new System.Drawing.Point(733, 126);
+            this.lblTemp.Name = "lblTemp";
+            this.lblTemp.Size = new System.Drawing.Size(35, 13);
+            this.lblTemp.TabIndex = 4;
+            this.lblTemp.Text = "label1";
+            // 
             // SleepyJoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 637);
+            this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblscore);
             this.Controls.Add(this.lbltitle);
@@ -106,11 +117,12 @@ namespace SleepyJoe
         #endregion
 
         private System.Windows.Forms.Panel PnlGame;
-        private System.Windows.Forms.Timer TmrStairs;
+        private System.Windows.Forms.Timer tmrItems;
         private System.Windows.Forms.Timer TmrBiden;
         private System.Windows.Forms.Label lbltitle;
         private System.Windows.Forms.Label lblscore;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTemp;
     }
 }
 

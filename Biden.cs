@@ -19,7 +19,7 @@ namespace SleepyJoe
         //Create a constructor (initialises the values of the fields)
         public Biden()
         {
-            x = 10;
+            x = 125;
             y = 360;
             width = 400;
             height = 400;
@@ -41,15 +41,16 @@ namespace SleepyJoe
 
             if (move == "right")
             {
-                if (bidenRec.Location.X > 400)
+                if (bidenRec.Location.X == 125)
                 {
-                    x = 400;
+                    //Biden is in the centre lane
+                    x = 350;
                     bidenRec.Location = new Point(x, y);
 
                 }
-                else
+                else if (bidenRec.Location.X == -60)
                 { 
-                  x += 5;
+                  x = 125;
                   bidenRec.Location = new Point(x, y);
                 }
                
@@ -57,15 +58,15 @@ namespace SleepyJoe
 
             if (move == "left")
             { 
-                if (bidenRec.Location.X < -100)
+                if (bidenRec.Location.X == 125)
                 {
-                    x = -100;
+                    x = -60;
                     bidenRec.Location = new Point(x, y);
 
                 }
-                else
+                else if(bidenRec.Location.X == 350)
                 {
-                    x -= 5;
+                    x = 125;
                     bidenRec.Location = new Point(x, y);
                 }
 

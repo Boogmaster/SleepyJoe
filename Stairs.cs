@@ -18,10 +18,11 @@ namespace SleepyJoe
         //Create a constructor (initialises the values of the fields)
         public Stairs(int spacing)
         {
-            x = -spacing;
+            x = -spacing - 217;
+            //x = 0;
             y = 10;
-            width = 200;
-            height = 200;
+            width = 650;
+            height = 600;
             //stairImage contains the stair.png image
             stairImage = Properties.Resources.stair;
             stairRec = new Rectangle(x, y, width, height);
@@ -32,10 +33,10 @@ namespace SleepyJoe
             stairRec = new Rectangle(x, y, width, height);
             g.DrawImage(stairImage, stairRec);
         }
-        public void MoveStairs()
+        /*public void MoveStairs()
         {
             y += 5;
             stairRec.Location = new Point(x, y);
-        }
+        }*/
     }
 }
