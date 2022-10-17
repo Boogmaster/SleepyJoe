@@ -21,6 +21,8 @@ namespace SleepyJoe
         int score, energy;
         string move;
 
+        int itemI = 0;
+
 
         public SleepyJoe()
         {
@@ -60,7 +62,7 @@ namespace SleepyJoe
             }
 
             biden.DrawBiden(g);
-            icecream1.DrawIce(g);
+            icecream1.DrawItem(g);
 
 
 
@@ -88,7 +90,22 @@ namespace SleepyJoe
 
         private void tmrItems_Tick(object sender, EventArgs e)
         {
+            icecream1.ItemMove();
             PnlGame.Invalidate();
+
+
+        }
+
+        private void tmrItemSpawn_Tick(object sender, EventArgs e)
+        {
+            /*if(itemI == 5)
+            {
+                //spawn an icecream
+                icecream1.DrawItem(g);
+                itemI = 0;
+            }
+
+            itemI++;*/
         }
 
         private void SleepyJoe_KeyUp(object sender, KeyEventArgs e)

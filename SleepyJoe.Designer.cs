@@ -37,6 +37,7 @@ namespace SleepyJoe
             this.lblscore = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTemp = new System.Windows.Forms.Label();
+            this.tmrItemSpawn = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // PnlGame
@@ -95,6 +96,12 @@ namespace SleepyJoe
             this.lblTemp.TabIndex = 4;
             this.lblTemp.Text = "label1";
             // 
+            // tmrItemSpawn
+            // 
+            this.tmrItemSpawn.Enabled = true;
+            this.tmrItemSpawn.Interval = 1000;
+            this.tmrItemSpawn.Tick += new System.EventHandler(this.tmrItemSpawn_Tick);
+            // 
             // SleepyJoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +130,7 @@ namespace SleepyJoe
         private System.Windows.Forms.Label lblscore;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTemp;
+        private System.Windows.Forms.Timer tmrItemSpawn;
     }
 }
 
