@@ -73,9 +73,29 @@ namespace SleepyJoe.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cof {
+            get {
+                object obj = ResourceManager.GetObject("cof", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap handwich {
             get {
                 object obj = ResourceManager.GetObject("handwich", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icecrem {
+            get {
+                object obj = ResourceManager.GetObject("icecrem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

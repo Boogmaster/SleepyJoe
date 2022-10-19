@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Biden.cs" />
     <Compile Include="Icecream.cs" />
+    <Compile Include="Coffee.cs" />
     <Compile Include="SleepyJoe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +95,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icecrem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cof.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

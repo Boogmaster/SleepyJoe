@@ -33,11 +33,14 @@ namespace SleepyJoe
             this.PnlGame = new System.Windows.Forms.Panel();
             this.tmrItems = new System.Windows.Forms.Timer(this.components);
             this.TmrBiden = new System.Windows.Forms.Timer(this.components);
-            this.lbltitle = new System.Windows.Forms.Label();
-            this.lblscore = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTemp = new System.Windows.Forms.Label();
+            this.lblEnergy = new System.Windows.Forms.Label();
+            this.lblLives = new System.Windows.Forms.Label();
             this.tmrItemSpawn = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlGame
@@ -60,41 +63,23 @@ namespace SleepyJoe
             this.TmrBiden.Interval = 50;
             this.TmrBiden.Tick += new System.EventHandler(this.TmrBiden_Tick);
             // 
-            // lbltitle
+            // lblEnergy
             // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Location = new System.Drawing.Point(13, 13);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(35, 13);
-            this.lbltitle.TabIndex = 1;
-            this.lbltitle.Text = "Score";
+            this.lblEnergy.AutoSize = true;
+            this.lblEnergy.Location = new System.Drawing.Point(679, 210);
+            this.lblEnergy.Name = "lblEnergy";
+            this.lblEnergy.Size = new System.Drawing.Size(55, 13);
+            this.lblEnergy.TabIndex = 3;
+            this.lblEnergy.Text = "ENERGY:";
             // 
-            // lblscore
+            // lblLives
             // 
-            this.lblscore.AutoSize = true;
-            this.lblscore.Location = new System.Drawing.Point(13, 26);
-            this.lblscore.Name = "lblscore";
-            this.lblscore.Size = new System.Drawing.Size(13, 13);
-            this.lblscore.TabIndex = 2;
-            this.lblscore.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(674, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
-            // 
-            // lblTemp
-            // 
-            this.lblTemp.AutoSize = true;
-            this.lblTemp.Location = new System.Drawing.Point(733, 126);
-            this.lblTemp.Name = "lblTemp";
-            this.lblTemp.Size = new System.Drawing.Size(35, 13);
-            this.lblTemp.TabIndex = 4;
-            this.lblTemp.Text = "label1";
+            this.lblLives.AutoSize = true;
+            this.lblLives.Location = new System.Drawing.Point(679, 115);
+            this.lblLives.Name = "lblLives";
+            this.lblLives.Size = new System.Drawing.Size(40, 13);
+            this.lblLives.TabIndex = 4;
+            this.lblLives.Text = "LIVES:";
             // 
             // tmrItemSpawn
             // 
@@ -102,20 +87,55 @@ namespace SleepyJoe
             this.tmrItemSpawn.Interval = 1000;
             this.tmrItemSpawn.Tick += new System.EventHandler(this.tmrItemSpawn_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startToolStripMenuItem,
+            this.stopToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // startToolStripMenuItem
+            // 
+            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // SleepyJoe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 637);
-            this.Controls.Add(this.lblTemp);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblscore);
-            this.Controls.Add(this.lbltitle);
+            this.Controls.Add(this.lblLives);
+            this.Controls.Add(this.lblEnergy);
             this.Controls.Add(this.PnlGame);
+            this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "SleepyJoe";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SleepyJoe_KeyUp);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,11 +146,13 @@ namespace SleepyJoe
         private System.Windows.Forms.Panel PnlGame;
         private System.Windows.Forms.Timer tmrItems;
         private System.Windows.Forms.Timer TmrBiden;
-        private System.Windows.Forms.Label lbltitle;
-        private System.Windows.Forms.Label lblscore;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTemp;
+        private System.Windows.Forms.Label lblEnergy;
+        private System.Windows.Forms.Label lblLives;
         private System.Windows.Forms.Timer tmrItemSpawn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using SleepyJoe.Properties;
 
 namespace SleepyJoe
 {
@@ -17,16 +18,21 @@ namespace SleepyJoe
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
         Biden biden = new Biden();
         Icecream icecream1 = new Icecream(); // create the object icecream
-        bool left, right;
-        int score, energy;
+        Coffee cofcof = new Coffee();
+        int energy = 100;
         string move;
 
         int itemI = 0;
+
+        int lives = 3;
 
 
         public SleepyJoe()
         {
             InitializeComponent();
+            lblLives.Text = "LIVES: " + lives.ToString();
+            lblEnergy.Text = "ENERGY" + energy.ToString();
+            tmrItems.Enabled = false;
             //Double buffering to stop the movign items from flickering a lot 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, PnlGame, new object[] { true });
 
@@ -39,16 +45,10 @@ namespace SleepyJoe
             
 
         }
-        //drowsiness code
-        private void CheckEnergy()
-        {
-            if (energy == 0)
-            {
-                TmrBiden.Enabled = false;
-                tmrItems.Enabled = false;
-                MessageBox.Show("Game Over You Fell Asleep");
 
-            }
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tmrItems.Enabled = true;
         }
 
         private void PnlGame_Paint(object sender, PaintEventArgs e)
@@ -63,6 +63,7 @@ namespace SleepyJoe
 
             biden.DrawBiden(g);
             icecream1.DrawItem(g);
+            cofcof.DrawItem(g);
 
 
 
@@ -91,9 +92,39 @@ namespace SleepyJoe
         private void tmrItems_Tick(object sender, EventArgs e)
         {
             icecream1.ItemMove();
+            cofcof.ItemMove();
             PnlGame.Invalidate();
 
+            if (biden.bidenRec.IntersectsWith(icecream1.iceRec))
+            {
+                lives--;
+                lblLives.Text = "LIVES: " + lives.ToString();
+                icecream1.PopToTop();
+            }
+            if(lives <= 0)
+            {
+                tmrItems.Enabled = false;
+                MessageBox.Show("L + ratio");
+            }
 
+            //collecting of much cofcofs
+            if (biden.bidenRec.IntersectsWith(cofcof.cofRec))
+            {
+                energy += 20;
+
+                lblEnergy.Text = "ENERGY: " + energy.ToString();
+                cofcof.PopToTop();
+            }
+            //decrease energy every tick
+            energy--;
+            lblEnergy.Text = "ENERGY: " + energy.ToString();
+            if (energy == 0)
+            {
+                TmrBiden.Enabled = false;
+                tmrItems.Enabled = false;
+                MessageBox.Show("Game Over You Fell Asleep");
+
+            }
         }
 
         private void tmrItemSpawn_Tick(object sender, EventArgs e)
@@ -137,5 +168,14 @@ namespace SleepyJoe
 
         }
 
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tmrItems.Enabled = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
