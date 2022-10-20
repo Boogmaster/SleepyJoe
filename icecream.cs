@@ -14,6 +14,7 @@ namespace SleepyJoe
 
         public Rectangle iceRec; //variable for a rectangle to place the image in
 
+        int speed = 15;
 
         //Create a constructor (initialises the values of the fields)
         public Icecream ()
@@ -61,7 +62,7 @@ namespace SleepyJoe
             }
             else
             {
-                y += 15;
+                y += speed;
                 iceRec.Location = new Point(x, y);
             }
         }
@@ -86,6 +87,15 @@ namespace SleepyJoe
                 x = 430;
             }
 
+        }
+
+        public void SpeedIncrease()
+        {
+            speed += 5;
+        }
+        public void SpeedReset()
+        {
+            speed = 15;
         }
     }
 

@@ -14,6 +14,7 @@ namespace SleepyJoe
 {
     public partial class SleepyJoe : Form
     {
+       
         Graphics g; //declare a graphics object called g
         Stairs [] stair1 = new Stairs[3]; //create the object, stair
         Biden biden = new Biden();
@@ -30,6 +31,8 @@ namespace SleepyJoe
         public SleepyJoe()
         {
             InitializeComponent();
+              MessageBox.Show("Welcome to Sleepy Joe! Use the arrow keys to move left and right to avoid the deadly icecream. If you get hit you'll lose a life. Lose 3 and its game over! \n Dont forget to keep stocking up on that coffee though - if you run out of energy you're done for! Collect coffee to give small boosts to your energy. \n" +
+                "Press Start to begin.");
             lblLives.Text = "LIVES: " + lives.ToString();
             lblEnergy.Text = "ENERGY" + energy.ToString();
             tmrItems.Enabled = false;
@@ -49,6 +52,12 @@ namespace SleepyJoe
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tmrItems.Enabled = true;
+            textBox1.Enabled = false;
+            lives = 3;
+            lblLives.Text = "LIVES: " + lives.ToString();
+            energy = 100;
+            lblEnergy.Text = "ENERGY: " + energy.ToString();
+            icecream1.SpeedReset();
         }
 
         private void PnlGame_Paint(object sender, PaintEventArgs e)
@@ -104,7 +113,7 @@ namespace SleepyJoe
             if(lives <= 0)
             {
                 tmrItems.Enabled = false;
-                MessageBox.Show("L + ratio");
+                MessageBox.Show("you died from obesity");
             }
 
             //collecting of much cofcofs
@@ -124,6 +133,10 @@ namespace SleepyJoe
                 tmrItems.Enabled = false;
                 MessageBox.Show("Game Over You Fell Asleep");
 
+            }
+            if (energy <=50)
+            {
+                icecream1.SpeedIncrease();
             }
         }
 
@@ -176,6 +189,15 @@ namespace SleepyJoe
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }
